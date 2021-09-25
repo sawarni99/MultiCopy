@@ -1,5 +1,5 @@
 from pynput import keyboard
-from constants import HOT_KEY_PASTE, KILL_THREADS
+from constants import HOT_KEY_PASTE
 
 
 class Keyboard:

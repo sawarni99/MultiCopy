@@ -4,7 +4,6 @@ import win32api
 import win32gui
 from pynput.keyboard import Key, Controller
 import clipboard
-from constants import KILL_THREADS
 
 
 # Function to paste data from clipboard...

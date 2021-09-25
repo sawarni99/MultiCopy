@@ -1,11 +1,12 @@
 import tkinter as tk
 import threading
-from constants import WINDOW_TITLE, MAX_SIZE, KILL_THREADS, ICON, THIS_WINDOW_NAME
+from constants import WINDOW_TITLE, MAX_SIZE, ICON, THIS_WINDOW_NAME
 from pystray import MenuItem as item
 import pystray
 from PIL import Image
 import clipboard_handler as ch
 import win32gui, win32com.client
+import window_style as style
 
 
 class Window:
@@ -13,7 +14,7 @@ class Window:
     frames = []
     
     def __init__(self, keyboard, clipboard):
-        self.window = tk.Tk()
+        self.window = style.makeWindow()
         self.keyboard = keyboard
         self.clipboard = clipboard
         self.icon = None
@@ -44,9 +45,6 @@ class Window:
 
     # Function to create the window...
     def createWindow(self, onPressKey):
-
-        # Rename the windows name...
-        self.window.title(WINDOW_TITLE)
 
         # Binding key press...
         self.window.bind('<Key>', onPressKey)
