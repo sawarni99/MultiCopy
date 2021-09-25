@@ -5,3 +5,4 @@ WINDOW_TITLE = "Clipboard"
 WINDOW_SIZE = "360x480"
 KILL_THREADS = False
 ICON = "favicon.png"
+THIS_WINDOW_NAME = "Clipboard"
