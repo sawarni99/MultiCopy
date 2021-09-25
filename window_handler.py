@@ -14,7 +14,7 @@ class Window:
     frames = []
     
     def __init__(self, keyboard, clipboard):
-        self.window = style.makeWindow()
+        self.window, self.background = style.makeWindow()
         self.keyboard = keyboard
         self.clipboard = clipboard
         self.icon = None
@@ -25,18 +25,11 @@ class Window:
     def createFrame(self, index, text):
 
         # Create a frame...
-        frame = tk.Frame(self.window, borderwidth=1, relief='flat', bg='black')
+        frame = style.makeFrame(self.background)
 
         # Create labels...
-        label_index = tk.Label(frame, text=index, bg="white", width=10, height=4)
-        label_text = tk.Label(frame, text=text, bg="white", width=50, height=4)
-
-        # Positioning the lables..
-        label_index.grid(column=1, row=0)
-        label_text.grid(column=2, row=0)
-
-        # Creating frame into window...
-        frame.pack()
+        label_index = style.makeLabel(frame, index, 'LEFT')
+        label_text = style.makeLabel(frame, text, 'RIGHT')
 
         # putting frame, label_index and label_text into dictionary...
         dic = {'frame' : frame, 'index' : index, 'text' : label_text}
