@@ -36,12 +36,10 @@ def onPressKey(key):
 
     # Checking if char is converted...
     if index == None :
-        print("[Error] Non integral key is pressed...")
         return
     
     # Checking if index present in array...
     if not dh.checkIndex(index-1) or dh.getData(index-1) == None:
-        print("[Error] Index out of bound...")
         return
 
     # Putting selected data into clipboard....

@@ -52,7 +52,6 @@ class Clipboard:
         return 0
 
     def listen(self):
-        print("Listening to clipboard....")
         def runner():
             hwnd = self._create_window()
             ctypes.windll.user32.AddClipboardFormatListener(hwnd)

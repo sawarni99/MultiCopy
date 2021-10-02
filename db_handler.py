@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+import ssl
 from constants import MAX_SIZE
 
 # Create env.py file to set connection, db and collection name from mongoDB
@@ -11,7 +12,7 @@ class Database:
     def __init__(self):
 
         # Connecting to mongoDB...
-        cluster = MongoClient(CONNECTION_LINK)
+        cluster = MongoClient(CONNECTION_LINK,  ssl_cert_reqs=ssl.CERT_NONE)
         db = cluster[DB_NAME]
 
         # Getting instance of collection...
