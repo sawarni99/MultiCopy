@@ -47,6 +47,15 @@ class Database:
 
     
     # Function to get all datas...
-    def get_data():
-        # TODO :: Have to code here....
-        pass
+    def get_data(self):
+        ret = []
+
+        # Getting all the texts...
+        results = self.collection.find({})
+
+
+        for result in results:
+            # Put only texts in array...
+            ret.append(result.text)
+
+        return ret
