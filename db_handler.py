@@ -24,7 +24,7 @@ class Database:
 
 
     # initializing DB...
-    def initialize_db(self):
+    def initialize(self):
 
         # Checking if DB is empty...
         if self.count() == 0:
@@ -40,7 +40,7 @@ class Database:
     def update(self, texts):
 
         # Iterating through the texts...
-        for index in range(texts):
+        for index in range(len(texts)):
 
             # Updating the new values...
             self.collection.update({"_id": index+1}, {"$set":{"text" : texts[index]}})
@@ -53,9 +53,11 @@ class Database:
         # Getting all the texts...
         results = self.collection.find({})
 
-
         for result in results:
-            # Put only texts in array...
-            ret.append(result.text)
+            text = None
+            # check if text present in databsae...
+            if 'text' in result:
+                text = result['text']
+                ret.append(text)
 
-        return ret
+        return reversed(ret)
