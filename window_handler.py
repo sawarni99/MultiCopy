@@ -13,10 +13,11 @@ class Window:
 
     frames = []
     
-    def __init__(self, keyboard, clipboard):
+    def __init__(self, keyboard, clipboard, database):
         self.window, self.background = style.makeWindow()
         self.keyboard = keyboard
         self.clipboard = clipboard
+        self.database = database
         self.icon = None
         self.shell = win32com.client.Dispatch("WScript.Shell")
 

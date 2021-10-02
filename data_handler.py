@@ -9,7 +9,7 @@ def filterData(text):
 
     # iterate through the text...
     for char in text:
-        if text!= None and ord(char) >= 0 and ord(char) <= 127:
+        if ord(char) >= 0 and ord(char) <= 127:
             filteredText += char
     
     return filteredText
@@ -17,11 +17,12 @@ def filterData(text):
 
 # Function to store data...
 def storeData(text):
+    # Checking if text is None or empty...
+    if text == None or text == "":
+        return
 
     # Filtering text...
     text = filterData(text)
-    if text == None or text == "":
-        return
 
     # Checking if same text is being entered into the array...
     if text in storedTexts:
